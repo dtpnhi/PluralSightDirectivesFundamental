@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css/">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="script.js"></script>
+
+    <script src="user/directives/userInfoCard.js"></script>
+    <script src="video/directives/videoAttrs.js"></script>
+    <script src="custom/custom.js"></script>
+
+</head>
+<body>
+
+    <!--<div ng-controller="videoCtrl" class="container" style="padding-top: 30px;">
+        <video id="vid" spacebar-support event-pause="handlePause(evt)" toggle-play="playOrStop()" controls preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
+            <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+            <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
+            <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogv">
+        </video>
+
+        <ol>
+            <li ng-repeat="message in messages">{{message.text}}</li>
+        </ol>
+    </div>-->
+
+    <div ng-controller="CustomClickCtrl", my-click="handleClick(data)">
+        {{data.message}}
+    </div>
+
+    <!--<div ng-controller="mainCtrl" class="container" style="padding-top: 30px;">
+        <user-info-card user="user1" collapsed="true"></user-info-card>
+        <user-info-card user="user2" collapsed="false"></user-info-card>
+        <hr>
+        <user-info-card user="user1"></user-info-card>
+    </div>-->
+</body>
+</html>
