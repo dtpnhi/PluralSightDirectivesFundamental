@@ -1,4 +1,23 @@
 angular.module('com.phuongnhi.directives', [])
+    
+    .directive('stateDisplay', function () {
+        return {
+            link: function (scope, element, attrs) {
+
+                var params = attrs['stateDisplay'].split(' ');
+                var classes = params.slice(1);
+
+                scope.$watch(params[0], function (newValue) {
+
+
+                    element.removeClass(classes.join(' '));
+                    element.addClass(classes[newValue]);
+                })
+                
+            }
+        }
+    })
+    
     .directive('userInfoCard', function () {
 
         console.log('userInfoCard');
@@ -9,11 +28,22 @@ angular.module('com.phuongnhi.directives', [])
                 user: '=',
                 initialCollapsed: '@collapsed'
             },
+
             controller: function ($scope) {
+
+                console.log('controller');
+
+                $scope.nextState = function() {
+
+                    $scope.user.level = $scope.user.level || 0;
+                    $scope.user.level++;
+                    console.log('nextState: ', $scope.user.level);
+                    $scope.user.level = $scope.user.level % 4;
+                };
 
                 $scope.knightMe = function (user) {
                     user.rank = 'knight';
-                }
+                };
 
                 $scope.collapsed = ($scope.initialCollapsed === 'true');
 
@@ -21,7 +51,7 @@ angular.module('com.phuongnhi.directives', [])
                     $scope.collapsed = !$scope.collapsed;
                     console.log("$scope.collapsed: ", $scope.collapsed);
                     console.log("userInfoCard $scope: ", $scope);
-                }
+                };
 
                 $scope.removeFriend = function (friendName) {
 
@@ -30,9 +60,7 @@ angular.module('com.phuongnhi.directives', [])
                     $scope.user.friends.splice($scope.user.friends.indexOf(friendName), 1);
                     $scope.removing = false;
                     console.log("$scope.user", $scope.user);
-                }
-
-                console.log('userInfoCard: ', $scope);
+                };
             },
             templateUrl: 'userInfoCard.html',
             replace: true

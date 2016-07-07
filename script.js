@@ -12,6 +12,17 @@ angular.module('app', ['com.phuongnhi.directives'])
     }])
 
     .controller('mainCtrl', ['$scope', function ($scope) {
+        
+        $scope.pn = {
+            name: 'PN Dang',
+            selected: true
+        };
+        
+        $scope.clickToChangeColor = function(user) {
+            user.selected = !user.selected;
+            console.log('clickToChangeColor', user);
+        }
+        
         $scope.user1 = {
             name: 'PN Dang',
             address: {
@@ -40,16 +51,17 @@ angular.module('app', ['com.phuongnhi.directives'])
             ]
         };
     }])
-    .controller('CustomClickCtrl', function ($scope) {
-        $scope.data = {};
-        $scope.data.message = "I haven't been clicked";
+    .controller('CustomClickCtr', function ($scope) {
         
-        $scope.handleClick = function (data) {
-            data.message = "I clicked";
+        $scope.data = {};
+        $scope.data.message = 'Hello'; 
+        
+        $scope.handleMyClick = function (data) {
+            console.log('handleMyClick: ', data);
+            data.message = 'goodbye';
         }
     })
-
-
+    .controller('CssCtrl', function ($scope) {
+        $scope.size = 150;
+    })
 ;
-
-    

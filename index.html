@@ -5,6 +5,7 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css/">
+    <link rel="stylesheet" href="style.css">
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -19,6 +20,16 @@
 </head>
 <body>
 
+    <!--<div ng-controller="CssCtrl">
+        <div font-scale="size">I'm some text {{size}}</div>
+        <input ng-model="size">
+    </div>-->
+
+    <!--<div ng-controller="mainCtrl">
+        <user-tile user="pn" click-on-text="clickToChangeColor(pn)"></user-tile>
+    </div>-->
+
+
     <!--<div ng-controller="videoCtrl" class="container" style="padding-top: 30px;">
         <video id="vid" spacebar-support event-pause="handlePause(evt)" toggle-play="playOrStop()" controls preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
             <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
@@ -31,15 +42,15 @@
         </ol>
     </div>-->
 
-    <div ng-controller="CustomClickCtrl", my-click="handleClick(data)">
+    <!--<div ng-controller="CustomClickCtr" my-click="handleMyClick(data)">
         {{data.message}}
-    </div>
+    </div>-->
 
-    <!--<div ng-controller="mainCtrl" class="container" style="padding-top: 30px;">
+    <div ng-controller="mainCtrl" class="container" style="padding-top: 30px;">
         <user-info-card user="user1" collapsed="true"></user-info-card>
         <user-info-card user="user2" collapsed="false"></user-info-card>
         <hr>
         <user-info-card user="user1"></user-info-card>
-    </div>-->
+    </div>
 </body>
 </html>
