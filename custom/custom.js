@@ -1,5 +1,35 @@
 angular.module('com.phuongnhi.directives')
-    .directive('fontScale', function () {
+    .directive('myQuestion', function () {
+        return {
+            restrict: 'E',
+            transclude: true,
+            templateUrl: 'myQuestion.html',
+            scope: {
+                questionText: '@q'
+            }
+        }
+    });
+    /*.directive('displayBox', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'displayBox.html',
+            controller: function ($scope) {
+                
+                console.log($scope);
+                
+                $scope.message = 'Hello from Nhi';
+                $scope.hidden = false;
+
+                $scope.close = function () {
+                    $scope.hidden = !$scope.hidden;
+                }
+            },
+            transclude: true,
+            scope: true
+        }
+    });*/
+
+    /*.directive('fontScale', function () {
 
         return {
             link: function (scope, ele, attrs) {
@@ -11,7 +41,7 @@ angular.module('com.phuongnhi.directives')
                 });
             }
         }
-    });
+    })*/
 
     /*.directive('myClick', function ($parse) {
         return {

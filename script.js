@@ -1,5 +1,9 @@
 angular.module('app', ['com.phuongnhi.directives'])
 
+    .controller('InnerCtrl', function ($scope) {
+        console.log($scope);
+    })
+
     .controller('videoCtrl', ['$scope', function($scope) {
 
         $scope.messages = [];
@@ -12,6 +16,9 @@ angular.module('app', ['com.phuongnhi.directives'])
     }])
 
     .controller('mainCtrl', ['$scope', function ($scope) {
+        
+        $scope.answers = {baseLocation: 'Seoul'};
+        $scope.message = 'Goodbye~';
         
         $scope.pn = {
             name: 'PN Dang',
@@ -49,6 +56,15 @@ angular.module('app', ['com.phuongnhi.directives'])
                 'MH',
                 'JK'
             ]
+        };
+        
+        $scope.droid1 = {
+            name: 'R2-D2',
+            specifications: {
+                manufacturer: 'Industrial Automation',
+                type:'Astromech',
+                productLine: 'R2 series'
+            }
         };
     }])
     .controller('CustomClickCtr', function ($scope) {

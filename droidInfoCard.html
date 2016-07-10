@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+
+    <div class="panel-heading" ng-click="collapse()">
+        <span state-display="droid.level user-ok user-warning user-problem user-error">{{droid.name}}</span>
+    </div>
+    <div class="panel-body" ng-hide="collapsed">
+        <h4>Specification:</h4>
+        <h6>
+            {{droid.specifications.manufacturer}} -
+            {{droid.specifications.type}} -
+            {{droid.specifications.productLine}}
+        </h6>
+        <button ng-click="nextState()" class="btn btn-default">Next State</button>
+    </div>
+</div>

@@ -7,14 +7,38 @@ angular.module('com.phuongnhi.directives', [])
                 var params = attrs['stateDisplay'].split(' ');
                 var classes = params.slice(1);
 
-                scope.$watch(params[0], function (newValue) {
-
-
+                scope.$watch(params[0], function(newValue) {
                     element.removeClass(classes.join(' '));
                     element.addClass(classes[newValue]);
-                })
-                
+                });
             }
+        }
+    })
+
+    .directive('droidInfoCard', function () {
+
+        return {
+            restrict: 'E',
+            scope: {
+                droid: '=',
+                initialCollapsed: '@collapsed'
+            },
+
+            controller: function ($scope) {
+
+                $scope.collapsed = ($scope.initialCollapsed === 'true');
+
+                $scope.nextState = function() {
+                    $scope.droid.level = $scope.droid.level || 0;
+                    $scope.droid.level++;
+                    $scope.droid.level = $scope.droid.level % 4;
+                };
+                $scope.collapse = function () {
+                    $scope.collapsed = !$scope.collapsed;
+                };
+            },
+            templateUrl: 'droidInfoCard.html',
+            replace: true
         }
     })
     
