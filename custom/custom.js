@@ -1,5 +1,51 @@
 angular.module('com.phuongnhi.directives')
-    .directive('myQuestion', function () {
+    .directive('myLazyRender', function() {
+        return {
+            restrict: 'A',
+            transclude: 'element',
+            priority: 1000,
+            link: function(scope, element, attrs, ctr, transclude) {
+                var unWatchFn = scope.$watch(attrs.myLazyRender, function (newValue) {
+                    var showit = JSON.parse(newValue);
+                    var hasBeenShown = false;
+
+                    if (showit && !hasBeenShown) {
+
+                        transclude(scope, function(clone) {
+                            element.after(clone);
+                        });
+                        hasBeenShown = true;
+                        unWatchFn();
+                    }
+                })
+            }
+        }
+    })
+    .directive('echo', function() {
+        return {
+            restrict: 'A',
+            priority: 800,
+            link: function(scope, element, attrs, ctr, trans) {
+                console.log('echo');
+            }
+        }
+    });
+
+    /*.directive('myTransclude', function() {
+        return {
+            restrict: 'A',
+            transclude: 'element',
+            link: function(scope, element, attrs, ctr, transc) {
+
+                transc(scope, function(clone) {
+                    element.after(clone);
+                })
+            }
+
+        }
+    });*/
+
+    /*.directive('myQuestion', function () {
         return {
             restrict: 'E',
             transclude: true,
@@ -8,7 +54,7 @@ angular.module('com.phuongnhi.directives')
                 questionText: '@q'
             }
         }
-    });
+    });*/
     /*.directive('displayBox', function () {
         return {
             restrict: 'E',

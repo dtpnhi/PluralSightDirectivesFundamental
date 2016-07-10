@@ -16,6 +16,16 @@ angular.module('app', ['com.phuongnhi.directives'])
     }])
 
     .controller('mainCtrl', ['$scope', function ($scope) {
+
+        $scope.showit = false;
+
+        $scope.clickToShowit = function () {
+
+            $scope.showit = true;
+            console.log($scope.showit);
+        };
+        
+        $scope.items = [1, 2, 3, 57];
         
         $scope.answers = {baseLocation: 'Seoul'};
         $scope.message = 'Goodbye~';

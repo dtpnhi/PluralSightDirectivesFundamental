@@ -19,68 +19,11 @@
 
 </head>
 <body ng-controller="mainCtrl" class="container">
-    <!--
-    <h1>Questions</h1>
-    <my-question q="Where do you live?">
-        <input type="text" ng-model="answers.baseLocation">
-    </my-question>
 
-    <my-question q="Are you my brother?">
-        <input type="radio" ng-value="true" ng-model="answers.brother">Yes
-        <input type="radio" ng-value="false" ng-model="answers.brother">No
-    </my-question>
-
-    <my-question q="Are these droids I'm looking for?">
-        <button class="btn btn-lg btn-primary">No</button>
-        <button class="btn btn-xs btn-default">Yes</button>
-    </my-question>-->
-
-
-    <!--<display-box>
-        <div ng-controller="InnerCtrl">
-            <div>This is content inside</div>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-            </ul>
-            {{message}}
-        </div>
-    </display-box>-->
-
-    <!--<div ng-controller="CssCtrl">
-        <div font-scale="size">I'm some text {{size}}</div>
-        <input ng-model="size">
-    </div>-->
-
-    <!--<div ng-controller="mainCtrl">
-        <user-tile user="pn" click-on-text="clickToChangeColor(pn)"></user-tile>
-    </div>-->
-
-
-    <!--<div ng-controller="videoCtrl" class="container" style="padding-top: 30px;">
-        <video id="vid" spacebar-support event-pause="handlePause(evt)" toggle-play="playOrStop()" controls preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
-            <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
-            <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
-            <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogv">
-        </video>
-
-        <ol>
-            <li ng-repeat="message in messages">{{message.text}}</li>
-        </ol>
-    </div>-->
-
-    <!--<div ng-controller="CustomClickCtr" my-click="handleMyClick(data)">
-        {{data.message}}
-    </div>-->
-
-    <div ng-controller="mainCtrl" class="container" style="padding-top: 30px;">
-        <user-info-card user="user1" collapsed="true"></user-info-card>
-        <user-info-card user="user2" collapsed="false"></user-info-card>
-        <hr>
-        <droid-info-card droid="droid1"></droid-info-card>
-        <user-info-card user="user1"></user-info-card>
-
+    <div my-lazy-render="showit" echo ng-repeat="item in items">
+        {{item}}
     </div>
+    <button class="btn btn-primary" ng-click="clickToShowit()">Show it</button>
 
 </body>
 </html>
